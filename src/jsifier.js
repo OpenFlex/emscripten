@@ -1365,6 +1365,7 @@ function JSify(data, functionsOnly, givenFunctions) {
         } else {
           size = Runtime.getNativeFieldSize(param.type);
         }
+        size = Runtime.alignMemory(size, Runtime.STACK_ALIGN);
         varargs.push(val);
         varargs = varargs.concat(zeros(size-1));
         // TODO: replace concats like this with push
